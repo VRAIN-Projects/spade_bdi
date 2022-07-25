@@ -1,4 +1,7 @@
 import getpass
+import time
+
+from spade import quit_spade
 
 from spade_bdi.bdi import BDIAgent
 
@@ -9,3 +12,7 @@ if __name__ == '__main__':
     a = BDIAgent("BDIReceiverAgent@" + server, passwd, "receiver.asl")
     a.start()
 
+    time.sleep(10)
+    a.stop().result()
+
+    quit_spade()
